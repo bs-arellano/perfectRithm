@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="{{ url_for('static',filename='src/img/play-game-64.png')}}" type="image/ico">
+	<title>Acerca de | Perfect Rithm</title>
+	<link href="{{ url_for('static',filename='styles/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<nav id="navbar">
+		<ul>
+
+			<img id="logo" src="{{ url_for('static',filename='src/img/perfect_rithm.png')}}" alt="Logo"
+				style="width: 20%">
+
+			<a href="{{ url_for('index')}}">
+				<li>Inicio</li>
+			</a>
+			<a href="{{ url_for('maps')}}">
+				<li>Niveles</li>
+			</a>
+			<a href="{{ url_for('leaderboard')}}">
+				<li>Clasificación</li>
+			</a>
+			<a href="{{ url_for('profile')}}">
+				<li>Perfil</li>
+			</a>
+			<a href="{{ url_for('about')}}">
+				<li>Acerca de</li>
+			</a>
+		</ul>
+	</nav>
+
+	<section id="page_description">
+		<article class="post">
+			<img src="{{ url_for('static',filename='src/img/info_icon.png')}}" width="50">
+			<div>
+				<h3>Información del juego</h3>
+				<p>
+					Perfect Rithm es un juego de ritmo con sistema de puntuación y clasificación desarrollado para el
+					espacio académico "Modelos de Programación 2" de la Universidad Distrital "Francisco José de
+					Caldas".
+				</p>
+			</div>
+		</article>
+		<article class="post">
+			<img src="{{ url_for('static',filename='src/img/contact_icon.png')}}" width="50">
+			<div>
+				<h3>Contacto</h3>
+				<ul>
+					<li>Brayan Arellano : bsarellanoe@correo.udistrital.edu.co</li>
+					<li>Jorge Gomez : jodgomezv@correo.udistrital.edu.co</li>
+					<li>Hanna Villamil: hcvillamilo@correo.udistrital.edu.co</li>
+				</ul>
+			</div>
+		</article>
+	</section>
+
+	<section>
+		<article class="post">
+			<img src="{{ url_for('static',filename='src/img/exclamation_icon.png')}}" width="50">
+			<div>
+				<h3>Soporte</h3>
+				<p>
+					Ante cualquier duda o sugerencia comunicarse con los desarrolladores mediante correo electrónico o
+					enviando el siguiente formulario:
+				</p>
+				<form id="support_form">
+					<input type="text" placeholder="Escribe tu mensaje">
+				</form>
+				<button type="submit" form="support_form" value="Submit">Enviar</button>
+				<div>
+		</article>
+	</section>
+
+	<footer>
+		<p>
+			Perfect Rithm es desarrollado como proyecto para el espacio académico de Modelos de Programación 2
+		</p>
+		<p>Brayan Arellano - Jorge Gomez - Hanna Villamil</p>
+	</footer>
+</body>
+
+</html>

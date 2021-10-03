@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="{{ url_for('static',filename='src/img/play-game-64.png')}}" type="image/ico">
+	<title>Perfil | Perfect Rithm</title>
+	<link href="{{ url_for('static',filename='styles/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<nav id="navbar">
+		<ul>
+
+			<img id="logo" src="{{ url_for('static',filename='src/img/perfect_rithm.png')}}" alt="Logo"
+				style="width: 20%">
+
+			<a href="{{ url_for('index')}}">
+				<li>Inicio</li>
+			</a>
+			<a href="{{ url_for('maps')}}">
+				<li>Niveles</li>
+			</a>
+			<a href="{{ url_for('leaderboard')}}">
+				<li>Clasificación</li>
+			</a>
+			<a href="{{ url_for('profile')}}">
+				<li>Perfil</li>
+			</a>
+			<a href="{{ url_for('about')}}">
+				<li>Acerca de</li>
+			</a>
+		</ul>
+	</nav>
+
+	<section id="profile_info">
+		<h2>Informacion de perfil</h2>
+		<article class="post">
+			<img src="{{ url_for('static',filename='src/img/profile_icon.png')}}" width="50">
+			<div>
+				<h3>Nombre de usuario</h3>
+				<ul>
+					<li>Lvl: 1</li>
+					<li>Puntuación total: 1200</li>
+					<li>Precisión: 87%</li>
+				</ul>
+			</div>
+		</article>
+	</section>
+
+	<section id="records">
+		<h2>Mapas jugados</h2>
+		<article class="post">
+			<img src="{{ url_for('static',filename='src/img/level_icon.png')}}" width="50">
+			<div>
+				<a href="game.html">
+					<h3>Titulo</h3>
+				</a>
+				<ul>
+					<li>Dificultad: 3.24</li>
+					<li>Puntaje: 578</li>
+					<li>Precisión: 94%</li>
+				</ul>
+			</div>
+		</article>
+		<article class="post">
+			<img src="{{ url_for('static',filename='src/img/level_icon.png')}}" width="50">
+			<div>
+				<a href="{{ url_for('game')}}">
+					<h3>Titulo</h3>
+				</a>
+				<ul>
+					<li>Dificultad: 3.24</li>
+					<li>Puntaje: 578</li>
+					<li>Precisión: 94%</li>
+				</ul>
+			</div>
+		</article>
+	</section>
+
+	<footer>
+		<p>
+			Perfect Rithm es desarrollado como proyecto para el espacio académico de Modelos de Programación 2
+		</p>
+		<p>Brayan Arellano - Jorge Gomez - Hanna Villamil</p>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+body{
+	font-family: 'Josefin Sans', sans-serif;
+	background: #101010;
+	color: white;
+	margin: 0;
+}
+
+button{
+	border: none;
+	border-radius: 1em;
+	background: #505090;
+	padding: 1em;
+	color: white;
+	font-weight: bold;
+}
+
+canvas {
+	display : block;   
+	margin : auto;
+}
+
+footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+	padding: 2em 0;
+  background-color: #070707;
+  text-align: center;
+	font-size: 0.8em;
+}
+
+section{
+	margin: 2em 0;
+}
+
+h2{
+	text-align: center;
+}
+
+input[type=text] {
+  width: 100%;
+	max-width: 1000px;
+  padding: 0.5em;
+  margin: 1em 0;
+  box-sizing: border-box;
+	border: none;
+	border-radius: 0.5em;
+	background-color: #555555;
+	font-size: 1.3em;
+	color: white;
+}
+
+li{
+	list-style: none;
+	margin: 1em 0;
+}
+
+table{
+	width: 100%;
+	text-align: center;
+}
+
+td{
+	padding: 0.5em 2em;
+}
+
+ul{
+	padding-left: 0;
+}
+
+#juego {
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #d9d9d9;
+  background-color: aliceblue;
+}
+
+#logo {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	margin-bottom: 1em;
+}
+
+#navbar{
+	position: sticky;
+	top: 0;
+	background-color: black;
+	text-align: center;
+	overflow: hidden;
+	padding: 1em 0;
+}
+#navbar a{
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 1em;
+}
+#navbar li{
+	display: inline-block;
+	margin: 0.5em 0;
+}
+
+#score{
+	font-size: 2em;
+}
+
+#search {
+	background: #303030;
+	overflow: auto;
+	border-radius: 0.8em;
+	margin: 0 1em;
+	padding: 1em;
+	padding-top: 0;
+	text-align: center;
+}
+
+.post {
+	background: #303030;
+	overflow: auto;
+	border-radius: 1em;
+	padding: 1em;
+	margin: 1em;
+}
+.post a{
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+.post div{
+	margin-left: 5em;
+}
+.post img{
+	float: left;
+	display: block;
+	margin-top: 1em;
+}

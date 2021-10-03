@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="{{ url_for('static',filename='src/img/play-game-64.png')}}" type="image/ico">
+	<title>Play | Perfect Rithm</title>
+	<link href="{{ url_for('static',filename='styles/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<nav id="navbar">
+		<ul>
+
+			<img id="logo" src="{{ url_for('static',filename='src/img/perfect_rithm.png')}}" alt="Logo"
+				style="width: 20%">
+
+			<a href="{{ url_for('index')}}">
+				<li>Inicio</li>
+			</a>
+			<a href="{{ url_for('maps')}}">
+				<li>Niveles</li>
+			</a>
+			<a href="{{ url_for('leaderboard')}}">
+				<li>Clasificación</li>
+			</a>
+			<a href="{{ url_for('profile')}}">
+				<li>Perfil</li>
+			</a>
+			<a href="{{ url_for('about')}}">
+				<li>Acerca de</li>
+			</a>
+		</ul>
+	</nav>
+
+	<article class="post">
+		<label id="score"></label>
+		<div id='game_canvas'></div>
+	</article>
+	<script src="{{ url_for('static',filename='scripts/phaser.js')}}" type="text/javascript"></script>
+	<script src="{{ url_for('static',filename='scripts/juego.js')}}" type="text/javascript"></script>
+</body>
+
+</html>
