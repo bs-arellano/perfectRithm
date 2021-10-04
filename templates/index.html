@@ -37,13 +37,15 @@
 
 	<section id="news">
 		<h2>Últimas noticias</h2>
+		{%for n in news%}
 		<article class="post">
 			<img src="{{ url_for('static',filename='src/img/new_icon.png')}}" width="50">
 			<div>
-				<h3>Primera version!</h3>
-				<p>Incluye una beta jugable del juego</p>
+				<h3>{{n[1]}}</h3>
+				<p>{{n[2]}}</p>
 			</div>
 		</article>
+		{%endfor%}
 	</section>
 
 	<footer>

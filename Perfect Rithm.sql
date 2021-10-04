@@ -27,9 +27,9 @@ CANCION_ID
 /* Table: RECORD                                                */
 /*==============================================================*/
 create table RECORD (
-   SERIAL               INT4                 not null,
-   USER_ID              VARCHAR(15)          null,
-   CANCION_ID               VARCHAR(15)          null,
+   SERIAL               SERIAL                 not null,
+   USER_ID              VARCHAR(40)          not null,
+   CANCION_ID               VARCHAR(15)      not null,
    SCORE                INT4                 not null,
    ACCURACY             NUMERIC              not null,
    DATE                 DATE                 not null,
@@ -61,10 +61,10 @@ CANCION_ID
 /* Table: "USER"                                                */
 /*==============================================================*/
 create table USUARIO (
-   UID                  VARCHAR(15)          not null,
+   UID                  VARCHAR(40)          not null,
    USERNAME             VARCHAR(16)          not null,
    EMAIL                VARCHAR(320)         not null,
-   PASSWORD             VARCHAR(30)          not null,
+   PASSWORD             VARCHAR(256)          not null,
    LEVEL                INT4                 not null,
    USER_SCORE           INT4                 not null,
    constraint PK_USER primary key (UID)
@@ -75,6 +75,23 @@ create table USUARIO (
 /*==============================================================*/
 create unique index USER_PK on USUARIO (
 UID
+);
+
+/*==============================================================*/
+/* Table: "NEWS"                                                */
+/*==============================================================*/
+create table news (
+   id                  VARCHAR(40)          not null,
+   title             VARCHAR(30)          not null,
+   description                VARCHAR(512)         not null,
+   fecha					DATE				not null,
+   constraint PK_NEW primary key (id)
+);
+/*==============================================================*/
+/* Index: NEW_PK                                               */
+/*==============================================================*/
+create unique index NEW_PK on news (
+id
 );
 
 alter table RECORD

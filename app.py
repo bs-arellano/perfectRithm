@@ -5,17 +5,18 @@ import Database
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fd6a3c8acb37fbb9e89778cd0f4db563dd1e9b4d'
 
-
+#Pagina de inicio, carga las noticias en orden
 @app.route("/")
 def index():
-    return render_template('index.html')
+    data = Database.consultar_noticias()
+    return render_template('index.html', news = data)
 
-
+#Pagina de informacion sobre el juego
 @app.route("/about")
 def about():
     return render_template('about.html')
 
-
+#Carga una cancion y los recursos para jugarla
 @app.route("/game/<song>")
 def game(song):
     data = Database.select_song(song)
@@ -24,7 +25,7 @@ def game(song):
     else:
         return redirect(url_for('maps'))
 
-
+#Vista de mapas recomendados
 @app.route("/maps", methods=['POST', 'GET'])
 def maps():
     if request.method=='GET':
@@ -33,7 +34,7 @@ def maps():
         data = Database.consultar_cancion(request.form['m_name'])
     return render_template('maps.html', data = data)
 
-
+#Tabla de jugadores ordenados por score
 @app.route("/leaderboard", methods=['POST', 'GET'])
 def leaderboard():
     if request.method=='GET':
@@ -42,6 +43,7 @@ def leaderboard():
         data = Database.consultar_usuario(request.form['u_name'])
     return render_template('leaderboard.html', data=data)
 
+#Pagina de perfil
 @app.route("/profile")
 def profile():
     if 'loggedin' in session:
@@ -50,7 +52,7 @@ def profile():
     else:
         return redirect(url_for('login'))
 
-
+#Inicio de sesion
 @app.route("/login", methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -74,6 +76,7 @@ def login():
             flash('Incorrect username/password')
     return render_template('login.html')
 
+#Nuevo usuario
 @app.route("/register", methods=['POST', 'GET'])
 def register():
     if request.method=='POST':
@@ -85,6 +88,7 @@ def register():
     else:
         return render_template('register.html')
 
+#Cierra sesion
 @app.route('/logout')
 def logout():
     # Remove session data, this will log the user out
@@ -93,3 +97,12 @@ def logout():
    session.pop('username', None)
    # Redirect to login page
    return redirect(url_for('login'))
+
+#Nueva puntuacion
+@app.route("/newReg")
+def newReg():
+    song_id = request.args.get('song')
+    song_score = request.args.get('score')
+    song_acc = request.args.get('acc')
+    Database.new_reg(session['id'], song_id,song_score,song_acc)
+    return redirect(url_for('index'))

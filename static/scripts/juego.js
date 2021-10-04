@@ -25,9 +25,9 @@ function preload() {
     this.load.image('right', '../static/src/img/right.png');
     this.load.image('rightNote', '../static/src/img/rightNote.png');
     this.load.image('play', '../static/src/img/play.png');
-    this.load.audio('song', '../static/'+song);
+    this.load.audio('song', '../static/' + song);
     this.load.audio('hit', '../static/src/audio/hit.mp3');
-    this.load.json('notas', '../static/'+notes);
+    this.load.json('notas', '../static/' + notes);
 }
 
 var back;
@@ -35,6 +35,7 @@ var music;
 var notas;
 var jugar_btn;
 var score = 0;
+var acc = 100;
 //UP
 var up_key;
 var up_img;
@@ -92,6 +93,9 @@ var notasActivadas = []
 
 function update() {
     if (playing) {
+        if (notasActivadas.length > 0 & music.seek == 0) {
+            stopGame()
+        }
         //Display notes
         notas.Notes.forEach(nota => {
             if (nota[0] - (0.2) <= music.seek + 0.1 & music.seek - 0.1 <= nota[0] - (0.2) & notasActivadas.includes(nota) == false) {
@@ -269,4 +273,10 @@ function left_nt() {
 }
 function right_nt() {
     return contexto.add.image(400, 300, 'rightNote').setScale(0.8, 0.8);
+}
+
+//GAME OVER
+function stopGame(){
+    game.destroy()
+    window.location.replace("/newReg?song="+song_id+"&score="+score+"&acc="+acc);
 }

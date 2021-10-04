@@ -12,6 +12,8 @@ button{
 	padding: 1em;
 	color: white;
 	font-weight: bold;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
 }
 
 canvas {
