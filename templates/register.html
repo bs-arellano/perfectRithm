@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ url_for('static',filename='src/img/play-game-64.png')}}" type="image/ico">
-    <title>Iniciar Sesion | Perfect Rithm</title>
+    <title>Registro | Perfect Rithm</title>
     <link href="{{ url_for('static',filename='styles/style.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
@@ -37,13 +37,15 @@
 
     <section>
         <article class="post" style="text-align: center" >
-            <form action="/login" method="post" id="loginForm">
-                <label for="lemail">Correo electronico</label><br>
-                <input name="login_email" id="login_email" type="text"><br><br>
-                <label for="lpassword">Contraseña</label><br>
-                <input name="login_password" id="login_password" type="text"><br><br>
+            <form action="/register" method="post" id="regForm">
+                <label for="rname">Nombre de usuario</label><br>
+                <input name="reg_name" id="reg_name" type="text"><br><br>
+                <label for="remail">Correo electronico</label><br>
+                <input name="reg_email" id="reg_email" type="text"><br><br>
+                <label for="rpassword">Contraseña</label><br>
+                <input name="reg_password" id="reg_password" type="text"><br><br>
             </form>
-            <button type="submit" form="loginForm" value="Submit">Ingresar</button>
+            <button type="submit" form="regForm" value="Submit">Registrar</button>
         </article>
     </section>
 

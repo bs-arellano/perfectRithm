@@ -40,13 +40,13 @@
 		<article class="post">
 			<img src="{{ url_for('static',filename='src/img/profile_icon.png')}}" width="50">
 			<div>
-				<h3>Nombre de usuario</h3>
+				<h3>{{data[1]}}</h3>
 				<ul>
-					<li>Lvl: 1</li>
-					<li>Puntuación total: 1200</li>
-					<li>Precisión: 87%</li>
+					<li>Lvl: {{data[4]}}</li>
+					<li>Puntuación total: {{data[5]}}</li>
 				</ul>
 			</div>
+			<a href="{{url_for('logout')}}"><button>Cerrar sesion</button></a>
 		</article>
 	</section>
 
@@ -55,22 +55,7 @@
 		<article class="post">
 			<img src="{{ url_for('static',filename='src/img/level_icon.png')}}" width="50">
 			<div>
-				<a href="game.html">
 					<h3>Titulo</h3>
-				</a>
-				<ul>
-					<li>Dificultad: 3.24</li>
-					<li>Puntaje: 578</li>
-					<li>Precisión: 94%</li>
-				</ul>
-			</div>
-		</article>
-		<article class="post">
-			<img src="{{ url_for('static',filename='src/img/level_icon.png')}}" width="50">
-			<div>
-				<a href="{{ url_for('game')}}">
-					<h3>Titulo</h3>
-				</a>
 				<ul>
 					<li>Dificultad: 3.24</li>
 					<li>Puntaje: 578</li>
