@@ -1,25 +1,26 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     02/10/2021 8:38:11                           */
+/* Created on:     04/10/2021                         */
 /*==============================================================*/
 
 /*==============================================================*/
-/* Table: MAP                                                   */
+/* Table: CANCION                                                   */
 /*==============================================================*/
-create table MAP (
-   MAP_ID               VARCHAR(15)          not null,
-   MAP_NAME             VARCHAR(30)          not null,
-   DIFFICULT            NUMERIC              not null,
+create table CANCION (
+   CANCION_ID           VARCHAR(15)          not null,
+   CANCION_NAME         VARCHAR(30)          not null,
+   ARTISTA              VARCHAR(30)          not null,
+   GENERO               VARCHAR(30)          not null,
    URL_JSON             VARCHAR(50)          not null,
    URL_MEDIA            VARCHAR(50)          not null,
-   constraint PK_MAP primary key (MAP_ID)
+   constraint PK_CANCION primary key (CANCION_ID)
 );
 
 /*==============================================================*/
-/* Index: MAP_PK                                                */
+/* Index: CANCION_PK                                                */
 /*==============================================================*/
-create unique index MAP_PK on MAP (
-MAP_ID
+create unique index CANCION_PK on CANCION (
+CANCION_ID
 );
 
 /*==============================================================*/
@@ -28,7 +29,7 @@ MAP_ID
 create table RECORD (
    SERIAL               INT4                 not null,
    USER_ID              VARCHAR(15)          null,
-   MAP_ID               VARCHAR(15)          null,
+   CANCION_ID               VARCHAR(15)          null,
    SCORE                INT4                 not null,
    ACCURACY             NUMERIC              not null,
    DATE                 DATE                 not null,
@@ -50,16 +51,16 @@ USER_ID
 );
 
 /*==============================================================*/
-/* Index: MAPRECORD_FK                                          */
+/* Index: CANCIONRECORD_FK                                          */
 /*==============================================================*/
-create  index MAPRECORD_FK on RECORD (
-MAP_ID
+create  index CANCIONRECORD_FK on RECORD (
+CANCION_ID
 );
 
 /*==============================================================*/
 /* Table: "USER"                                                */
 /*==============================================================*/
-create table "USER" (
+create table USUARIO (
    UID                  VARCHAR(15)          not null,
    USERNAME             VARCHAR(16)          not null,
    EMAIL                VARCHAR(320)         not null,
@@ -72,17 +73,17 @@ create table "USER" (
 /*==============================================================*/
 /* Index: USER_PK                                               */
 /*==============================================================*/
-create unique index USER_PK on "USER" (
+create unique index USER_PK on USUARIO (
 UID
 );
 
 alter table RECORD
-   add constraint FK_RECORD_MAPRECORD_MAP foreign key (MAP_ID)
-      references MAP (MAP_ID)
+   add constraint FK_RECORD_CANCIONRECORD_CANCION foreign key (CANCION_ID)
+      references CANCION (CANCION_ID)
       on delete restrict on update restrict;
 
 alter table RECORD
-   add constraint FK_RECORD_USERRECOR_USER foreign key (USER_ID)
-      references "USER" (UID)
+   add constraint FK_RECORD_USERRECORD_USER foreign key (USER_ID)
+      references USUARIO (UID)
       on delete restrict on update restrict;
 

@@ -39,19 +39,22 @@
 		<div id="search">
 			<h2>Búsqueda</h2>
 			<form id="search_form">
-				<input type="text" placeholder="Nombre del mapa">
+				<input name="m_name" id="m_name" type="text" placeholder="Nombre del mapa">
 			</form>
 			<button type="submit" form="search_form" value="Submit">Buscar</button>
 		</div>
-
+		{%for d in data%}
 		<article class="post">
 			<img src="{{ url_for('static',filename='src/img/level_icon.png')}}" width="50">
 			<div>
-				<h3>Lovers - 7!</h3></a>
-				<p>Dificultad: 1</p>
-				<button value="Play"><a href="{{ url_for('game')}}">Jugar</a></button>
+				<h3>Nombre: {{d[1]}}</h3></a>
+				<p>Artista: {{d[2]}}<br>
+					Genero: {{d[3]}}
+				</p>
+				<button value="Play"><a href="{{ url_for('game',song=d[0])}}">Jugar</a></button>
 			</div>
 		</article>
+		{%endfor%}
 	</section>
 
 	<footer>

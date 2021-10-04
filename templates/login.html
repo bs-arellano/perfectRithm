@@ -37,9 +37,13 @@
 
     <section>
         <article class="post">
-            <form>
-                
+            <form action="/login" method="post" id="loginForm">
+                <label for="lemail">Correo electronico:</label>
+                <input id="login_email" type="text"><br><br>
+                <label for="lpassword">Contraseña:</label>
+                <input id="login_password" type="text"><br><br>
             </form>
+            <button type="submit" form="loginForm" value="Submit">Ingresar</button>
         </article>
     </section>
 

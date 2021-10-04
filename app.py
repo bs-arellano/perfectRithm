@@ -1,11 +1,8 @@
-import psycopg2
-from flask import Flask, redirect, url_for, request, render_template
-
-db_user = 'postgres'
-db_password = 'hyperpro16'
+from flask import Flask, redirect, url_for, request, render_template, session
+import Database
 
 app = Flask(__name__)
-conn = None
+app.config['SECRET_KEY'] = 'fd6a3c8acb37fbb9e89778cd0f4db563dd1e9b4d'
 
 
 @app.route("/")
@@ -18,20 +15,31 @@ def about():
     return render_template('about.html')
 
 
-@app.route("/game")
-def game():
-    return render_template('game.html')
+@app.route("/game/<song>")
+def game(song):
+    data = Database.select_song(song)
+    if data is not None:
+        return render_template('game.html',data=data)
+    else:
+        return redirect(url_for('maps'))
 
 
-@app.route("/maps")
+@app.route("/maps", methods=['POST', 'GET'])
 def maps():
-    return render_template('maps.html')
+    if request.method=='GET':
+        data = Database.consultar_canciones()
+    if request.method=='POST':
+        data = Database.consultar_cancion(request.form['m_name'])
+    return render_template('maps.html', data = data)
 
 
-@app.route("/leaderboard")
+@app.route("/leaderboard", methods=['POST', 'GET'])
 def leaderboard():
-    return render_template('leaderboard.html')
-
+    if request.method=='GET':
+        data = Database.consultar_usuarios()
+    if request.method=='POST':
+        data = Database.consultar_usuario(request.form['u_name'])
+    return render_template('leaderboard.html', data=data)
 
 @app.route("/profile")
 def profile():
@@ -41,24 +49,6 @@ def profile():
 @app.route("/login", methods=['POST', 'GET'])
 def login():
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template("login.html")
     if request.method == 'POST':
-        username = request.form['user']
-        password = request.form['password']
-        try:
-            conn = psycopg2.connect(
-                f"dbname=Perfect_Rithm user={db_user} password={db_password}")
-            cur = conn.cursor()
-            cur.execute(
-                f'SELECT username, password FROM usuario WHERE usermane == "{username}"')
-            user = cur.fetchone()
-            cur.close()
-            if (username == user[1] and password == user[3]):
-                return redirect(url_for("/"))
-            else:
-                return redirect(url_for("login"))
-        except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
-        finally:
-            if conn is not None:
-                conn.close()
+        return redirect(url_for("index"))

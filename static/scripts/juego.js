@@ -15,19 +15,19 @@ var game = new Phaser.Game(config);
 
 function preload() {
     this.sound.pauseOnBlur = false;
-    this.load.image('board', 'static/src/img/background.png');
-    this.load.image('up', 'static/src/img/up.png');
-    this.load.image('upNote', 'static/src/img/upNote.png');
-    this.load.image('down', 'static/src/img/down.png');
-    this.load.image('downNote', 'static/src/img/downNote.png');
-    this.load.image('left', 'static/src/img/left.png');
-    this.load.image('leftNote', 'static/src/img/leftNote.png');
-    this.load.image('right', 'static/src/img/right.png');
-    this.load.image('rightNote', 'static/src/img/rightNote.png');
-    this.load.image('play', 'static/src/img/play.png');
-    this.load.audio('lovers', 'static/src/audio/7 - Lovers.mp3');
-    this.load.audio('hit', 'static/src/audio/hit.mp3');
-    this.load.json('notas', 'static/src/lovers.json');
+    this.load.image('board', '../static/src/img/background.png');
+    this.load.image('up', '../static/src/img/up.png');
+    this.load.image('upNote', '../static/src/img/upNote.png');
+    this.load.image('down', '../static/src/img/down.png');
+    this.load.image('downNote', '../static/src/img/downNote.png');
+    this.load.image('left', '../static/src/img/left.png');
+    this.load.image('leftNote', '../static/src/img/leftNote.png');
+    this.load.image('right', '../static/src/img/right.png');
+    this.load.image('rightNote', '../static/src/img/rightNote.png');
+    this.load.image('play', '../static/src/img/play.png');
+    this.load.audio('song', '../static/'+song);
+    this.load.audio('hit', '../static/src/audio/hit.mp3');
+    this.load.json('notas', '../static/'+notes);
 }
 
 var back;
@@ -59,7 +59,7 @@ function create() {
     back = this.add.image(400, 300, 'board').setScale(0.6, 0.6);
     back.visible = false;
     //Music
-    music = this.sound.add('lovers');
+    music = this.sound.add('song');
     music.volume = 0.1;
     hit = this.sound.add('hit');
     //Play button

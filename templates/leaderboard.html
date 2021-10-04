@@ -38,8 +38,8 @@
 	<section id="leaderboard">
 		<div id="search">
 			<h2>Buscar jugador</h2>
-			<form id="search_form">
-				<input type="text" placeholder="Nombre del jugador">
+			<form id="search_form" method="POST">
+				<input name="u_name" id="u_name" type="text" placeholder="Nombre del jugador">
 			</form>
 			<button type="submit" form="search_form" value="Submit">Buscar</button>
 		</div>
@@ -49,98 +49,14 @@
 					<th>Nombre</th>
 					<th>Nivel</th>
 					<th>Puntaje</th>
-					<th>Precisión</th>
 				</tr>
+				{%for d in data%}
 				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
+					<td>{{ d[0] }}</td>
+					<td>{{ d[1] }}</td>
+					<td>{{ d[2] }}</td>
 				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
-				<tr>
-					<td>Jugador 1</td>
-					<td>100</td>
-					<td>59800</td>
-					<td>99.65%</td>
-				</tr>
+				{%endfor%}
 			</table>
 		</section>
 
