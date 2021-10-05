@@ -7,11 +7,11 @@ Proyecto:  Juego Perfect Rithm v1
 #### MODELOS DE PROGRAMACIÓN 2
 
 Integrantes:
-Brayan Steven Arellano Espinosa 
+- Brayan Steven Arellano Espinosa 
 COD: 20191020151
-Hanna Caroline Villamil Ortiz
+- Hanna Caroline Villamil Ortiz
 COD: 20161150007
-Jorge Daniel Gomez Vanegas
+- Jorge Daniel Gomez Vanegas
 COD: 20161020101
 
 ##### Descripción del juego
