@@ -34,6 +34,7 @@ def maps():
         data = Database.consultar_canciones()
     if request.method=='POST':
         data = Database.consultar_cancion(request.form['m_name'])
+        recomendaciones.recomendado("Adele")
     return render_template('maps.html', data = data)
 
 #Tabla de jugadores ordenados por score
