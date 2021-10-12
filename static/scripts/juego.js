@@ -101,19 +101,19 @@ function update() {
             if (nota[0] - (0.45) <= music.seek & notasActivadas.includes(nota) == false) {
                 switch (nota[1]) {
                     case 'up':
-                        console.log('up ' + music.seek)
+                        //console.log('up ' + music.seek)
                         moveUp(up_nt());
                         break;
                     case 'down':
-                        console.log('down ' + music.seek)
+                        //console.log('down ' + music.seek)
                         moveDown(down_nt());
                         break;
                     case 'left':
-                        console.log('left ' + music.seek)
+                        //console.log('left ' + music.seek)
                         moveLeft(left_nt());
                         break;
                     case 'right':
-                        console.log('right ' + music.seek)
+                        //console.log('right ' + music.seek)
                         moveRight(right_nt());
                         break;
                 }
@@ -178,11 +178,11 @@ function update() {
         if (playing) {
             music.pause();
             playing = false;
-            console.log('pause');
+            //console.log('pause');
         } else {
             music.resume();
             playing = true;
-            console.log('resume');
+            //console.log('resume');
         }
     }
     //UPDATE SCORE
@@ -199,7 +199,7 @@ function playLevel() {
     back.visible = true;
     playing = true;
     music.play();
-    console.log('start');
+    //console.log('start');
 }
 
 var vel = 3
@@ -213,7 +213,7 @@ function moveUp(img) {
             moveUp(img)
         } else {
             img.destroy();
-            console.log('up finish ' + music.seek)
+            //console.log('up finish ' + music.seek)
             img.y = 300
         }
     }, 1)
@@ -227,7 +227,7 @@ function moveDown(img) {
             moveDown(img)
         } else {
             img.destroy()
-            console.log('down finish ' + music.seek)
+            //console.log('down finish ' + music.seek)
             img.y = 300
         }
     }, 1)
@@ -241,7 +241,7 @@ function moveLeft(img) {
             moveLeft(img)
         } else {
             img.destroy();
-            console.log('left finish ' + music.seek)
+            //console.log('left finish ' + music.seek)
             img.x = 400
         }
     }, 1)
@@ -256,7 +256,7 @@ function moveRight(img) {
             moveRight(img)
         } else {
             img.destroy();
-            console.log('right finish ' + music.seek)
+            //console.log('right finish ' + music.seek)
             img.x = 400
         }
     }, 1)
