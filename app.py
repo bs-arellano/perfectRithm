@@ -19,6 +19,8 @@ def about():
 #Carga una cancion y los recursos para jugarla
 @app.route("/game/<song>")
 def game(song):
+    if not 'loggedin' in session:
+        return redirect(url_for('login'))
     data = Database.select_song(song)
     if data is not None:
         return render_template('game.html',data=data)
@@ -48,7 +50,9 @@ def leaderboard():
 def profile():
     if 'loggedin' in session:
         data = Database.select_user_by_id(session['id'])
-        return render_template('profile.html',data=data)
+        records = Database.select_records_by_uid(session['id'])
+        print(records)
+        return render_template('profile.html',data=data, records=records)
     else:
         return redirect(url_for('login'))
 

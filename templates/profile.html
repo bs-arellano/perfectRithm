@@ -52,17 +52,19 @@
 
 	<section id="records">
 		<h2>Mapas jugados</h2>
+		{%for r in records%}
 		<article class="post">
 			<img src="{{ url_for('static',filename='src/img/level_icon.png')}}" width="50">
 			<div>
-					<h3>Titulo</h3>
+					<h3>{{r[0]}}</h3>
 				<ul>
-					<li>Dificultad: 3.24</li>
-					<li>Puntaje: 578</li>
-					<li>Precisión: 94%</li>
+					<li>Puntaje: {{r[1]}}</li>
+					<li>Precisión: {{r[2]}}%</li>
+					<li>Logrado en: {{r[3]}}</li>
 				</ul>
 			</div>
 		</article>
+		{%endfor%}
 	</section>
 
 	<footer>

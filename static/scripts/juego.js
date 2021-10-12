@@ -98,7 +98,7 @@ function update() {
         }
         //Display notes
         notas.Notes.forEach(nota => {
-            if (nota[0] - (0.2) <= music.seek + 0.1 & music.seek - 0.1 <= nota[0] - (0.2) & notasActivadas.includes(nota) == false) {
+            if (nota[0] - (0.45) <= music.seek & notasActivadas.includes(nota) == false) {
                 switch (nota[1]) {
                     case 'up':
                         console.log('up ' + music.seek)

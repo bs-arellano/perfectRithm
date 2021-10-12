@@ -5,7 +5,6 @@ db_password = 'hyperpro16'
 
 conn = None
 
-
 def consultar_usuarios():
     try:
         conn = psycopg2.connect(
@@ -158,7 +157,25 @@ def new_reg(uid, cancion_id, score, acc):
         cur.execute(
             "INSERT INTO record (serial, user_id, cancion_id, score, accuracy, date) VALUES (DEFAULT,%s,%s,%s,%s,CURRENT_DATE)", (uid,cancion_id,score, acc))
         conn.commit()
+        cur.execute(f"UPDATE usuario SET user_score = (user_score+{score}) WHERE uid = '{uid}'")
+        conn.commit()
         cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+
+def select_records_by_uid(uid):
+    try:
+        conn = psycopg2.connect(
+            f"dbname=Perfect_Rithm user={db_user} password={db_password}")
+        cur = conn.cursor()
+        cur.execute(
+            f"SELECT C.cancion_name, R.score, R.accuracy, R.date FROM record R, cancion C WHERE R.user_id = '{uid}' and R.cancion_id = C.cancion_id ORDER by R.score DESC")
+        records = cur.fetchall()
+        cur.close()
+        return records
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     finally:
